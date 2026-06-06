@@ -1,0 +1,32 @@
+.videos{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+video{
+  width:400px;
+  border:2px solid black;
+  border-radius:10px;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+  text-align:center;
+}
+
+.controls{
+  margin:20px;
+}
+
+.videos{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+video{
+  width:400px;
+  border-radius:12px;
+  border:2px solid #333;
+}

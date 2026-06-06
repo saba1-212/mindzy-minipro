@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Study Room - Video Call</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; background: #f0f4ff; }
+    video { width: 45%; margin: 10px; border-radius: 10px; }
+    #controls { margin-top: 20px; }
+    input { padding: 8px; margin: 5px; }
+    button { padding: 10px; background: #2a4d69; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>📹 Study Room - Video Chat</h1>
+
+  <div id="controls">
+    <input type="text" id="roomId" placeholder="Enter Room ID">
+    <button onclick="joinVideoRoom()">Join Room</button>
+  </div>
+
+  <video id="localVideo" autoplay muted playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="video.js"></script>
+</body>
+</html>

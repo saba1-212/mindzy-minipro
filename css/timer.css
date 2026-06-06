@@ -1,0 +1,127 @@
+
+.focus-container{
+    text-align:center;
+    padding:40px;
+    color:white;
+}
+
+.focus-title{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.focus-subtitle{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+.timer-settings{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.timer-settings input{
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    width:180px;
+    font-size:16px;
+}
+
+.timer-circle{
+    width:260px;
+    height:260px;
+    margin:30px auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 40px rgba(0,255,255,0.3);
+}
+
+#timerDisplay{
+    font-size:55px;
+    font-weight:bold;
+    color:#063d3d15;
+}
+
+.timer-buttons{
+    margin-top:25px;
+}
+
+.timer-buttons button{
+    padding:12px 20px;
+    margin:10px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00d2ff,#3a7bd5);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.timer-buttons button:hover{
+    transform:scale(1.05);
+}
+
+#modeDisplay{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#streakDisplay{
+    margin-top:10px;
+    color:#ffd700;
+    font-size:18px;
+}
+
+.focus-container h1,
+.focus-container h3,
+.focus-container p,
+.focus-container label {
+
+    color: #0b6d6da1;
+
+}
+
+.quote {
+
+    color: #d1d5db;
+    font-size: 15px;
+    margin-bottom: 20px;
+
+}
+
+#modeDisplay {
+
+    color: #00e5ff;
+    font-size: 22px;
+    margin-top: 20px;
+
+}
+
+#streakDisplay {
+
+    color: #ff9800;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+
+#timerDisplay {
+
+    font-size: 55px;
+    font-weight: bold;
+    color: #00ffff;
+    margin: 0;
+
+}
+
+

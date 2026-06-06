@@ -1,0 +1,243 @@
+/* =========================
+   AI STUDY ENGINE
+========================= */
+
+.ai-container {
+
+  width: 90%;
+  max-width: 1000px;
+
+  margin: 40px auto;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  text-align: center;
+}
+
+
+
+.ai-container h1 {
+
+  color: #2c3e50;
+
+  margin-bottom: 10px;
+
+  font-size: 36px;
+}
+
+
+
+.ai-container p {
+
+  color: #666;
+
+  margin-bottom: 30px;
+}
+
+
+
+/* =========================
+   UPLOAD BOX
+========================= */
+
+.upload-box {
+
+  border: 2px dashed #4facfe;
+
+  padding: 40px;
+
+  border-radius: 15px;
+
+  background: #f7fbff;
+
+  margin-bottom: 30px;
+}
+
+
+
+.upload-box input {
+
+  margin-top: 20px;
+}
+
+
+
+/* =========================
+   TEXT AREA
+========================= */
+
+#extractedText {
+
+  width: 100%;
+
+  min-height: 220px;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  border: 1px solid #ddd;
+
+  outline: none;
+
+  resize: vertical;
+
+  font-size: 15px;
+
+  margin-top: 20px;
+}
+
+
+
+/* =========================
+   AI TOOLS
+========================= */
+
+.ai-tools {
+
+  margin-top: 30px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 15px;
+}
+
+
+
+.ai-tools button {
+
+  padding: 14px 24px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #4facfe,
+    #00f2fe
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+
+.ai-tools button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+
+/* =========================
+   OUTPUT BOX
+========================= */
+
+#aiOutput {
+
+  margin-top: 40px;
+
+  text-align: left;
+
+  background: #f9f9f9;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  min-height: 150px;
+
+  line-height: 1.8;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .ai-tools{
+
+    flex-direction: column;
+  }
+
+  .ai-tools button{
+
+    width: 100%;
+  }
+}
+
+.flashcard-container{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:20px;
+
+  margin-top:20px;
+
+}
+
+.flashcard{
+
+  width:300px;
+
+  min-height:180px;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,255,255,0.3);
+
+  box-shadow:0 8px 32px rgba(0,0,0,0.15);
+
+  transition:0.3s;
+
+}
+
+.flashcard:hover{
+
+  transform:translateY(-5px);
+
+}
+
+.flashcard h3{
+
+  margin-bottom:15px;
+
+}
+
+.flashcard p{
+
+  line-height:1.6;
+
+}

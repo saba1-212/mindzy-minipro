@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mindzy Video Call</title>
+  <link rel="stylesheet" href="video.css">
+</head>
+
+<body>
+
+<h1>📹 Mindzy Video Call</h1>
+
+<div class="controls">
+
+  <button id="startBtn">
+    Start Camera
+  </button>
+
+  <button id="createCallBtn">
+    Create Call
+  </button>
+
+  <input
+    id="callInput"
+    placeholder="Call ID"
+  />
+
+  <button id="joinCallBtn">
+    Join Call
+  </button>
+
+</div>
+
+<h2 id="callIdDisplay">
+  Call ID: Not Created
+</h2>
+
+<div class="videos">
+
+  <video
+    id="localVideo"
+    autoplay
+    playsinline
+    muted>
+  </video>
+
+  <video
+    id="remoteVideo"
+    autoplay
+    playsinline>
+  </video>
+
+</div>
+
+<script type="module" src="video.js"></script>
+
+</body>
+</html>

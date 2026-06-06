@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindzy - Study Planner App</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/timer.css" />
+  <link rel="stylesheet" href="css/ai.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="reminder-toggle">
+  <label class="switch">
+    <input type="checkbox" id="reminderToggle" checked>
+    <span class="slider"></span>
+  </label>
+  <span class="reminder-label">🔔 Smart Reminders</span>
+</div>
+
+
+  <!-- Logo and Title Section -->
+  <div class="logo-container">
+    <img src="https://i.postimg.cc/BQ5Bs7pW/PLS-LOGO.jpg" alt="Test Logo" class="logo" />
+
+
+
+    <h1>Mindzy</h1>
+    
+  </div>
+
+  <!-- App Title -->
+  <h1>📚 Your Smart Study Partner</h1>
+  <p id="tagline">Plan smarter. Study better. Track everything – all in one place!</p>
+
+  <!-- Navigation Tabs -->
+  <div class="tab-buttons">
+    
+
+    <button onclick="switchTab('planner')">📅 Study Planner</button>
+    <button onclick="switchTab('resources')">🔍 Resource Finder</button>
+    <button onclick="switchTab('timer')">⏲ Pomodoro Timer</button>
+    <button onclick="switchTab('analytics')">📊 Analytics Dashboard</button>
+    <button onclick="switchTab('chatbot')">🤖 ChatBot</button> <!-- ✅ Added here -->
+    <button onclick="switchTab('notes')">📝 Quick Notes</button>
+<button onclick="switchTab('slide')">🎞️ Slide Maker</button>
+
+    <button onclick="switchTab('flowchart')">🧠 Flowchart Maker</button>
+   <button onclick="window.location.href='studyroom/public-new/room.html'">
+  🧑‍🤝‍🧑 Study Room
+</button>
+
+<button onclick="window.location.href='studyroom/public-new/video.html'">
+  🎥 Study Room (Video)
+</button>
+
+<!-- Add to home.html -->
+<button onclick="logout()" style="position: absolute; top: 20px; right: 20px;">Logout</button>
+
+
+  
+<button onclick="switchTab('ai')">
+  🧠 AI Study Engine
+</button>
+
+
+
+<script>
+  function logout() {
+    localStorage.removeItem("mindzyUser");
+    window.location.href = "login.html";
+  }
+</script>
+
+
+    <!-- Add to the Tab Buttons -->
+<button onclick="switchTab('todo')">📝 To-Do List</button>
+
+<!-- Add this in tab contents -->
+<div id="todo-tab" class="tab-content"></div>
+
+  
+
+<!-- Example using Excalidraw -->
+<div id="flowchart-tab" class="tab-content">
+  <h2>🧠 Create Flowcharts / Mind Maps</h2>
+  <p>Use the editor below to draw diagrams or flowcharts:</p>
+  <iframe 
+    src="https://excalidraw.com" 
+    width="100%" 
+    height="600px" 
+    style="border: 1px solid #ccc; border-radius: 8px;" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+
+
+  </div>
+
+  
+<div id="ai-tab" class="tab-content"></div>
+
+
+
+  <!-- Dynamic Tabs -->
+   <div id="slide-tab" class="tab-content"></div>
+
+  <div id="planner-tab" class="tab-content active"></div>
+  <div id="resources-tab" class="tab-content"></div>
+  <div id="timer-tab" class="tab-content"></div>
+  <div id="analytics-tab" class="tab-content"></div>
+  <div id="chatbot-tab" class="tab-content"></div> <!-- ✅ ChatBot tab content -->
+  <div id="notes-tab" class="tab-content"></div>
+  <!-- JS Feature Scripts -->
+  <script src="js/planner.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+
+  <script src="js/ai/aiEngine.js"></script>
+<script src="js/ai/fileReader.js"></script>
+<script src="js/ai/youtubeReader.js"></script>
+<script src="js/ai/groqConfig.js"></script>
+<script src="js/ai/summaryGenerator.js"></script>
+<script src="js/ai/quizGenerator.js"></script>
+<script src="js/ai/flashcardGenerator.js"></script>
+<script src="js/ai/flowchartGenerator.js"></script>
+
+
+  <script src="js/chatbot.js"></script> <!-- ✅ Loads chatbot UI -->
+  <script src="js/notes.js"></script>
+  <script src="js/todo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+<!-- jsPDF for exporting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Your PPT logic -->
+<script src="js/ppt.js"></script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

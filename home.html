@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mindzy – Smart Study Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #dbeafe, #e0f7fa);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .slogan {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #374151;
+    }
+
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .feature-list button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+  </style>
+</head>
+<body>
+<h1 class="animate__animated animate__fadeInDown">Welcome to Mindzy</h1>
+<p id="typing-text" class="tagline"></p>
+<img src="https://i.postimg.cc/BQ5Bs7pW/PLS-LOGO.jpg" alt="Test Logo" class="logo" />
+  <script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+  }
+
+  // Load saved mode on refresh
+  window.onload = function() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+    }
+  };
+</script>
+<script>
+  const tagline = "Your one-stop productivity and learning partner 💡";
+  let index = 0;
+  function typeEffect() {
+    if (index < tagline.length) {
+      document.getElementById("typing-text").textContent += tagline.charAt(index);
+      index++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+  window.onload = function () {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+    }
+    typeEffect();
+  };
+</script>
+
+
+
+<div class="intro-tip">
+  <div class="intro-header">📌 Quick Tip</div>
+  <div class="intro-body">
+    Click any feature to begin. Plan smarter, focus better, track everything – and even chat with our bot!
+  </div>
+</div>
+
+
+  <div class="feature-list">
+    <button onclick="location.href='index.html'">📚 Launch Full App</button>
+    <!-- Optional future links -->
+    <!--
+    <button onclick="location.href='planner.html'">🗓 Study Planner</button>
+    <button onclick="location.href='resources.html'">🔍 Resource Finder</button>
+    <button onclick="location.href='timer.html'">⏲ Pomodoro Timer</button>
+    <button onclick="location.href='analytics.html'">📊 Analytics</button>
+    <button onclick="window.location.href='http://localhost:3000/index.html'">🧑‍🤝‍🧑 Study Room</button>
+<button onclick="location.href='video.html'" data-info="Video study session">🎥 Study Room (Video)</button>
+
+
+<button onclick="window.location.href='login.html'">🚀 Launch Mindzy</button>
+
+
+
+
+    -->
+  </div>
+
+</body>
+</html>

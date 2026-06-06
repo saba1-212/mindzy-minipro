@@ -1,0 +1,94 @@
+/* Full Page Background Animation */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f0f4ff, #fef6ff);
+  background-size: 600% 600%;
+  animation: backgroundShift 18s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Center Container */
+.container {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #2a4d69;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Logo Styling */
+#logo {
+  width: 100px;
+  height: auto;
+  margin: 20px auto;
+  animation: popIn 1s ease-in-out;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Tip Box */
+.tip-box {
+  background: #fff;
+  border-left: 6px solid #2a4d69;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* Launch Button */
+.launch-btn {
+  background: linear-gradient(145deg, #2a4d69, #3e7aa8);
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(42, 77, 105, 0.3);
+  transition: all 0.3s ease;
+}
+
+.launch-btn:hover {
+  box-shadow: 0 0 25px #4d79a7, 0 0 40px #2a4d69;
+  transform: scale(1.05);
+}

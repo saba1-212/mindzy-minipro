@@ -1,0 +1,16 @@
+{
+  "name": "studyroom",
+  "version": "1.0.0",
+  "description": "Free Study Room with Chat, Video & Status",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^7.0.4",
+    "socket.io": "^4.8.1"
+  }
+}

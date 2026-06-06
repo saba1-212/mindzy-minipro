@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mindzy Study Room</title>
+
+<link rel="stylesheet" href="room.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 Mindzy Study Room</h1>
+
+<input
+id="roomId"
+placeholder="Room ID"
+/>
+
+<input
+id="username"
+placeholder="Your Name"
+/>
+
+<button onclick="joinRoom()">
+Join Room
+</button>
+
+<hr>
+
+<div id="currentRoom"></div>
+
+<h3>👥 Online Members</h3>
+
+<div id="membersBox"></div>
+
+<hr>
+
+
+
+
+<div id="chatBox"></div>
+
+<div class="chat-controls">
+
+<input
+id="messageInput"
+placeholder="Type message..."
+/>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+<script type="module" src="room.js"></script>
+
+</body>
+</html>
