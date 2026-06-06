@@ -12,7 +12,10 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 // Serve all static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home.html'));
+});
 app.use(express.json());
 app.use(cors());
 
