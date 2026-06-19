@@ -30,17 +30,13 @@ function initAnalytics() {
       </div>
 
     </div>
+<div class="chart-container">
+    <canvas id="pieChart"></canvas>
+</div>
 
-    <canvas id="pieChart"
-            width="400"
-            height="250">
-    </canvas>
-
-    <canvas id="barChart"
-            width="400"
-            height="250"
-            style="margin-top:40px;">
-    </canvas>
+<div class="chart-container">
+    <canvas id="barChart"></canvas>
+</div>
 
   `;
 }
@@ -120,33 +116,51 @@ function updateAnalyticsCharts(timetable) {
 
   // PIE CHART
 
-  window.pieChartInstance = new Chart(
-    pieCtx,
-    {
-      type: "pie",
+ window.pieChartInstance = new Chart(pieCtx, {
 
-      data: {
+    type: "pie",
+
+    data: {
 
         labels: [
-          "Completed",
-          "Pending"
+            "Completed",
+            "Pending"
         ],
 
         datasets: [{
 
-          data: [
-            completed,
-            pending
-          ],
+            data: [
+                completed,
+                pending
+            ],
 
-          backgroundColor: [
-            "#4caf50",
-            "#f44336"
-          ]
+            backgroundColor: [
+                "#4CAF50",
+                "#F44336"
+            ]
+
         }]
-      }
+    },
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        plugins: {
+
+            legend: {
+
+                position: "bottom"
+
+            }
+
+        }
+
     }
-  );
+
+});
 
   // BAR CHART
 

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mindzy – Smart Study Hub</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
   <style>
@@ -57,9 +58,135 @@
   </style>
 </head>
 <body>
-<h1 class="animate__animated animate__fadeInDown">Welcome to Mindzy</h1>
-<p id="typing-text" class="tagline"></p>
-<img src="https://i.postimg.cc/BQ5Bs7pW/PLS-LOGO.jpg" alt="Test Logo" class="logo" />
+<section class="hero">
+
+  <div class="hero-left">
+
+    <h2 class="brand-name">
+Mindzy
+
+</h2>
+
+    <h1 class="animate__animated animate__fadeInDown">
+      AI-Powered Smart Study Companion
+    </h1>
+
+    <p id="typing-text" class="tagline"></p>
+
+    <div class="hero-buttons">
+
+     <button
+  class="launch-btn"
+  onclick="location.href='login.html'">
+  🚀 Get Started
+</button>
+
+<a href="#features">
+  <button class="explore-btn">
+    🔍 Explore Features
+  </button>
+</a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    
+
+    
+
+  </div>
+
+</section>
+
+<section class="about-section reveal">
+
+  <div class="about-card">
+
+    <h2> What is Mindzy?</h2>
+
+    <p>
+      Mindzy is an AI-powered study companion
+      that helps students plan smarter,
+      learn faster and stay productive.
+
+      It combines AI tools, study planning,
+      analytics, notes, quizzes,
+      flashcards and collaborative
+      study rooms into one platform.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="feature-section reveal" id="features">
+
+  <div class="feature-image">
+    <img src="https://thumbs.dreamstime.com/b/weekly-study-plan-infographic-featuring-schedule-blocks-academic-icons-clean-layout-students-colorful-study-plan-386700850.jpg" alt="Smart Planner">
+  </div>
+
+  <div class="feature-content">
+
+    <h2>📅 Smart Planner</h2>
+
+    <p>
+      Automatically creates personalized study
+      schedules based on subjects, deadlines
+      and study goals.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="feature-section reverse reveal">
+
+  <div class="feature-image">
+    <img src="https://tse1.mm.bing.net/th/id/OIF.0apSN9YICJwjAb5xWbZM4g?rs=1&pid=ImgDetMain&o=7&rm=3" alt="AI Study Engine">
+  </div>
+
+  <div class="feature-content">
+
+    <h2>🤖 AI Study Engine</h2>
+
+    <p>
+      Upload PDFs or YouTube lectures and
+      instantly generate summaries,
+      quizzes, flashcards and revision notes.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="feature-section reveal">
+
+  <div class="feature-image">
+    <img src="https://th.bing.com/th/id/OIP.20ZYLdq-KcMS3U2bxPJVHAHaE8?w=244&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Resource Finder">
+  </div>
+
+  <div class="feature-content">
+
+    <h2>🔍 Resource Finder</h2>
+
+    <p>
+      Instantly discover high-quality study
+      materials, notes, tutorials, and learning
+      resources from trusted sources.
+
+      Search by subject or topic and access
+      the best content to enhance your learning
+      experience.
+    </p>
+
+  </div>
+
+</section>
+
+
   <script>
   function toggleDarkMode() {
     document.body.classList.toggle('dark');
@@ -91,35 +218,38 @@
   };
 </script>
 
+<script>
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+window.addEventListener(
+"scroll",
+() => {
+
+  reveals.forEach(section => {
+
+    const top =
+      section.getBoundingClientRect().top;
+
+    const trigger =
+      window.innerHeight - 150;
+
+    if(top < trigger){
+
+      section.classList.add(
+        "active"
+      );
+
+    }
+
+  });
+
+});
+
+</script>
 
 
-<div class="intro-tip">
-  <div class="intro-header">📌 Quick Tip</div>
-  <div class="intro-body">
-    Click any feature to begin. Plan smarter, focus better, track everything – and even chat with our bot!
-  </div>
-</div>
-
-
-  <div class="feature-list">
-    <button onclick="location.href='index.html'">📚 Launch Full App</button>
-    <!-- Optional future links -->
-    <!--
-    <button onclick="location.href='planner.html'">🗓 Study Planner</button>
-    <button onclick="location.href='resources.html'">🔍 Resource Finder</button>
-    <button onclick="location.href='timer.html'">⏲ Pomodoro Timer</button>
-    <button onclick="location.href='analytics.html'">📊 Analytics</button>
-    <button onclick="window.location.href='http://localhost:3000/index.html'">🧑‍🤝‍🧑 Study Room</button>
-<button onclick="location.href='video.html'" data-info="Video study session">🎥 Study Room (Video)</button>
-
-
-<button onclick="window.location.href='login.html'">🚀 Launch Mindzy</button>
-
-
-
-
-    -->
-  </div>
 
 </body>
 </html>

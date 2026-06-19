@@ -1,57 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Mindzy Video Call</title>
   <link rel="stylesheet" href="video.css">
 </head>
-
 <body>
 
-<h1>📹 Mindzy Video Call</h1>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-icon">📹</div>
+    <h1>Mindzy <span>Video Room</span></h1>
+    <p class="tagline">Study together, anywhere — real-time peer video sessions</p>
+  </div>
 
-<div class="controls">
+  <!-- CALL ID PILL -->
+  <div class="callid-bar">
+    <span class="callid-label">CALL ID</span>
+    <span class="callid-value" id="callIdDisplay">Not created yet</span>
+    <div class="live-badge" id="liveBadge" style="display:none">
+      <div class="live-dot"></div> Live
+    </div>
+  </div>
 
-  <button id="startBtn">
-    Start Camera
-  </button>
+  <!-- VIDEOS -->
+  <div class="videos">
 
-  <button id="createCallBtn">
-    Create Call
-  </button>
+    <div class="video-card" id="localCard">
+      <video id="localVideo" autoplay playsinline muted></video>
+      <div class="placeholder" id="localPlaceholder">
+        <div class="avatar-circle">👤</div>
+        <p>Your camera is off</p>
+      </div>
+      <div class="vid-footer">
+        <span class="vid-name">You</span>
+        <span class="mic-icon" id="micIcon">🎙</span>
+      </div>
+    </div>
 
-  <input
-    id="callInput"
-    placeholder="Call ID"
-  />
+    <div class="video-card" id="remoteCard">
+      <video id="remoteVideo" autoplay playsinline></video>
+      <div class="placeholder" id="remotePlaceholder">
+        <div class="avatar-circle">👥</div>
+        <p>Waiting for peer to join...</p>
+      </div>
+      <div class="vid-footer">
+        <span class="vid-name">Peer</span>
+      </div>
+    </div>
 
-  <button id="joinCallBtn">
-    Join Call
-  </button>
+  </div>
 
-</div>
+  <!-- CONTROLS CARD -->
+  <div class="controls-card">
 
-<h2 id="callIdDisplay">
-  Call ID: Not Created
-</h2>
+    <!-- Camera section -->
+    <div class="ctrl-section">
+      <p class="ctrl-label">CAMERA</p>
+      <div class="ctrl-row">
+        <button id="startBtn">📷 Start Camera</button>
+        <div class="status-row">
+          <div class="status-dot" id="camDot"></div>
+          <span class="status-text" id="camStatus">Camera not started</span>
+        </div>
+      </div>
+    </div>
 
-<div class="videos">
+    <div class="divider"></div>
 
-  <video
-    id="localVideo"
-    autoplay
-    playsinline
-    muted>
-  </video>
+    <!-- Create Call section -->
+    <div class="ctrl-section">
+      <p class="ctrl-label">CREATE A NEW CALL</p>
+      <div class="ctrl-row">
+        <button id="createCallBtn">✨ Create Call</button>
+        <button class="btn-outline" id="copyBtn" onclick="copyCallId()">📋 Copy ID</button>
+      </div>
+    </div>
 
-  <video
-    id="remoteVideo"
-    autoplay
-    playsinline>
-  </video>
+    <div class="divider"></div>
 
-</div>
+    <!-- Join Call section -->
+    <div class="ctrl-section">
+      <p class="ctrl-label">JOIN AN EXISTING CALL</p>
+      <div class="ctrl-row">
+        <div class="input-wrap">
+          <span class="input-icon">🔑</span>
+          <input id="callInput" placeholder="Paste Call ID here…" />
+        </div>
+        <button class="btn-outline" id="joinCallBtn">Join Call →</button>
+      </div>
+    </div>
 
-<script type="module" src="video.js"></script>
+    <div class="divider"></div>
+
+    <!-- End call -->
+    <div class="ctrl-section">
+      <div class="ctrl-row">
+        <button class="btn-danger" id="endBtn" onclick="endCallUI()">📵 End Call</button>
+        <div class="status-row">
+          <div class="status-dot green" id="connDot" style="display:none"></div>
+          <span class="status-text" id="connStatus">Not connected</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="video.js"></script>
+
+  <script>
+    /* UI helpers — these do NOT touch your video.js logic */
+    function copyCallId() {
+      const val = document.getElementById('callIdDisplay').textContent.trim();
+      if (val === 'Not created yet') return;
+      navigator.clipboard.writeText(val).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => btn.textContent = '📋 Copy ID', 1600);
+      });
+    }
+
+    function endCallUI() {
+      document.getElementById('callIdDisplay').textContent = 'Not created yet';
+      document.getElementById('liveBadge').style.display = 'none';
+      document.getElementById('localCard').classList.remove('active');
+      document.getElementById('remoteCard').classList.remove('active');
+      document.getElementById('localVideo').srcObject = null;
+      document.getElementById('remoteVideo').srcObject = null;
+      document.getElementById('localPlaceholder').style.display = 'flex';
+      document.getElementById('remotePlaceholder').style.display = 'flex';
+      document.getElementById('camDot').classList.remove('green');
+      document.getElementById('camStatus').textContent = 'Camera not started';
+      document.getElementById('connDot').style.display = 'none';
+      document.getElementById('connStatus').textContent = 'Call ended';
+      document.getElementById('startBtn').textContent = '📷 Start Camera';
+    }
+
+    /* Watch localVideo / remoteVideo for stream — hide placeholder automatically */
+    function watchVideo(videoId, placeholderId, cardId) {
+      const vid = document.getElementById(videoId);
+      const ph  = document.getElementById(placeholderId);
+      const card = document.getElementById(cardId);
+      const observer = new MutationObserver(() => {
+        if (vid.srcObject) {
+          ph.style.display = 'none';
+          card.classList.add('active');
+          if (videoId === 'localVideo') {
+            document.getElementById('camDot').classList.add('green');
+            document.getElementById('camStatus').textContent = 'Camera active';
+            document.getElementById('startBtn').textContent = '✅ Camera On';
+          } else {
+            document.getElementById('connDot').style.display = 'inline-block';
+            document.getElementById('connStatus').textContent = 'Peer connected';
+            document.getElementById('liveBadge').style.display = 'flex';
+          }
+        }
+      });
+      observer.observe(vid, { attributes: true, attributeFilter: ['src'] });
+      vid.addEventListener('loadedmetadata', () => {
+        if (vid.srcObject) {
+          ph.style.display = 'none';
+          card.classList.add('active');
+        }
+      });
+    }
+    watchVideo('localVideo',  'localPlaceholder',  'localCard');
+    watchVideo('remoteVideo', 'remotePlaceholder', 'remoteCard');
+
+    /* Show call ID when createCallBtn fires — intercept after your JS sets it */
+    document.getElementById('createCallBtn').addEventListener('click', () => {
+      setTimeout(() => {
+        const el = document.getElementById('callIdDisplay');
+        if (el.textContent !== 'Not created yet') {
+          document.getElementById('liveBadge').style.display = 'flex';
+          document.getElementById('connDot').style.display = 'inline-block';
+          document.getElementById('connStatus').textContent = 'Waiting for peer…';
+        }
+      }, 800);
+    });
+  </script>
 
 </body>
 </html>

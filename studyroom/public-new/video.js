@@ -119,10 +119,9 @@ async () => {
     );
 
   document.getElementById(
-    "callIdDisplay"
-  ).innerHTML =
-    "Call ID: " +
-    callDoc.id;
+  "callIdDisplay"
+).textContent =
+  callDoc.id;
 
   peerConnection.onicecandidate =
     event => {
@@ -217,10 +216,15 @@ async () => {
     return;
   }
 
-  const callId =
-    document.getElementById(
-      "callInput"
-    ).value;
+const callId =
+document.getElementById(
+  "callInput"
+)
+.value
+.replace("Call ID:", "")
+.trim();
+
+console.log("Joining Call:", callId);
 
   const callDoc =
     doc(
@@ -241,9 +245,28 @@ async () => {
       "offerCandidates"
     );
 
-  const callData =
-    (await getDoc(callDoc))
-    .data();
+  const callSnapshot =
+  await getDoc(callDoc);
+
+if (!callSnapshot.exists()) {
+
+  alert("Call ID not found ❌");
+
+  return;
+
+}
+
+const callData =
+  callSnapshot.data();
+
+
+console.log(
+  "CALL DATA:",
+  callData
+);
+
+
+
 
   peerConnection =
     new RTCPeerConnection(

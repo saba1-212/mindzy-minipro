@@ -511,7 +511,7 @@ li.completed {
   margin-top: 15px;
   margin-right: 10px;
   cursor: pointer;
-  background: linear-gradient(145deg, #2a4d69, #3e7aa8);
+  background: linear-gradient(145deg, #2a4d69, hsl(206, 46%, 45%));
   color: white;
   font-weight: bold;
   transition: 0.3s ease;
@@ -520,4 +520,32 @@ li.completed {
 .planner-container button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(42, 77, 105, 0.3);
+}
+
+.chart-container{
+
+    width:650px;
+
+    height:320px;
+
+    margin:30px auto;
+
+    position:relative;
+
+}
+
+.chart-container canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+.chart-container{
+
+    width:500px;
+
+    height:280px;
+
 }
